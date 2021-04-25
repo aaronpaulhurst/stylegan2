@@ -25,8 +25,13 @@ chmod a+x cuda_10.0.130_410.48_linux
 sudo ./cuda_10.0.130_410.48_linux
 
 # Install CNN (from local S3 bucket)
+aws configure
+aws s3 cp s3://ahurst-stylegan2/cuda_10.0.130_410.48_linux.run .
 aws s3 cp s3://ahurst-stylegan2/libcudnn7_7.5.0.56-1+cuda10.0_amd64.deb .
 aws s3 cp s3://ahurst-stylegan2/libcudnn7-dev_7.5.0.56-1+cuda10.0_amd64.deb .
+
+chmod a+x cuda_10.0.130_410.48_linux.run
+./cuda_10.0.130_410.48_linux.run 
 sudo dpkg -i libcudnn7_7.5.0.56-1+cuda10.0_amd64.deb
 sudo dpkg -i libcudnn7-dev_7.5.0.56-1+cuda10.0_amd64.deb
 
